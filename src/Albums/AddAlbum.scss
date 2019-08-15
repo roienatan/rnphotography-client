@@ -1,0 +1,111 @@
+@import "../styles/base/colors.scss";
+
+.add-album-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 40px 25px 40px;
+  color: $white;
+  width: 300px;
+  height: 200px;
+  background-image: url("../assets/plus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px;
+  border-radius: 10px;
+  border: 2px dashed $gray;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+
+  &.edit-mode {
+    background-image: none;
+    .album-name {
+      font-family: OpenSans-Bold;
+      background: none;
+      border: none;
+      margin: 10px;
+      color: $white;
+      font-size: 20px;
+      font-style: italic;
+    }
+    .actions {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      .cancel-creation {
+        font-family: GoogleSans-Regular;
+        background: none;
+        border: none;
+        color: $link;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .cancel-creation:hover {
+        opacity: 0.7;
+      }
+      .create-album {
+        font-family: GoogleSans-Regular;
+        background: none;
+        border: none;
+        color: $white;
+        cursor: pointer;
+        border: 1px solid $white;
+        border-radius: 15px;
+        padding: 5px;
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.5;
+        }
+      }
+      .create-album:hover {
+        opacity: 0.7;
+      }
+    }
+    &.pending-server {
+      pointer-events: none;
+      animation: fade-in forwards 0.5s;
+    }
+  }
+  &.edit-mode:hover {
+    opacity: 1;
+  }
+}
+
+.add-album-wrapper:hover {
+  opacity: 0.7;
+}
+
+.image-upload-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  justify-content: space-between;
+  .selected-image-name {
+    font-size: 16px;
+    font-weight: 100;
+    text-overflow: ellipsis;
+    white-space: pre;
+    overflow: hidden;
+  }
+}
+.upload-image {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.upload-image + label {
+  font-size: 14px;
+  color: $link;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+.upload-image:focus + label,
+.upload-image + label:hover {
+  opacity: 0.7;
+}

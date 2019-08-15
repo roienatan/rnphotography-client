@@ -1,0 +1,39 @@
+@import "../styles/base/colors.scss";
+
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  .error-content {
+    display: flex;
+    align-items: center;
+    .sad {
+      font-size: 44px;
+      margin-right: 30px;
+      color: $white;
+    }
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    color: $white;
+    .title {
+      margin-left: 5px;
+      letter-spacing: 5.7px;
+      .bold {
+        letter-spacing: 2.3px;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+h3 {
+  color: $white;
+  font-weight: 100;
+  text-align: center;
+}

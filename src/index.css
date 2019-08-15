@@ -1,0 +1,35 @@
+@font-face {
+  font-family: OpenSans-Bold;
+  src: url("./styles/base/OpenSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: GoogleSans-Regular;
+  src: url("./styles/base/GoogleSans-Regular.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: GoogleSans-Regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

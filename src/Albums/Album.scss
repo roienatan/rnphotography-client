@@ -1,0 +1,150 @@
+@import "../styles/base/colors.scss";
+
+.album-wrapper {
+  margin-top: 70px;
+  width: 100%;
+  &.pending-server {
+    pointer-events: none;
+    animation: fade-in forwards 0.5s;
+  }
+  .album-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: $main-black;
+    width: 100%;
+    z-index: 1;
+    top: 80px;
+    padding: 10px 0px;
+    //box-shadow: 0 4px 2px -2px $shadow;
+    .album-details {
+      display: flex;
+      align-items: center;
+      color: $white;
+      font-size: 30px;
+      margin-left: 10px;
+      .go-back {
+        background: url("../assets/left-arrow-white.svg") no-repeat center;
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-right: 20px;
+      }
+      .go-back:hover {
+        opacity: 0.7;
+      }
+      .album-flag {
+        width: 40px;
+        margin-right: 10px;
+      }
+    }
+
+    .upload-images-wrapper {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      .add-photos {
+        background: url("../assets/add-photos.svg") no-repeat center;
+        background-size: 30px;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+
+      .upload-images {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .label-decoration {
+        font-size: 14px;
+        .add {
+          color: $link;
+          cursor: pointer;
+        }
+        .add:hover {
+          opacity: 0.7;
+        }
+        .selected {
+          color: $white;
+          display: flex;
+          .change-selection {
+            color: $link;
+            margin: 0px 10px;
+            cursor: pointer;
+          }
+          .change-selection:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .upload-images + label {
+        margin-bottom: unset;
+      }
+
+      .uplaod-selected {
+        background: none;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        border: 1px solid #ffffff;
+        border-radius: 15px;
+        text-align: center;
+        width: 100px;
+      }
+      .uplaod-selected:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .images-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: auto;
+    justify-content: center;
+    margin-top: 190px;
+    .image {
+      height: 230px;
+      cursor: pointer;
+      margin-top: 50px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+      margin: 25px;
+    }
+    .image:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .empty-album {
+    text-align: center;
+    color: $gray;
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .album-wrapper {
+    margin-top: 130px;
+    .album-header {
+      top: 115px;
+      padding: 15px 0px 10px 0px;
+    }
+    .images-wrapper {
+      justify-content: center;
+      .image {
+        height: 200px;
+      }
+    }
+  }
+}

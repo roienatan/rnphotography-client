@@ -1,0 +1,85 @@
+@import "../styles/base/colors.scss";
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $main-black;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  padding: 20px;
+  z-index: 2;
+  //box-shadow: 0 4px 2px -2px $shadow;
+
+  .navbar-logo-wrapper {
+    display: flex;
+    align-items: center;
+    color: $white;
+    margin-left: 10px;
+    .title {
+      margin-left: 5px;
+      letter-spacing: 5.7px;
+      .bold {
+        letter-spacing: 2.3px;
+        font-weight: bolder;
+      }
+    }
+  }
+  .navbar-logo-wrapper:hover {
+    opacity: 0.7;
+  }
+  .navbar-links-wrapper {
+    display: flex;
+    align-items: center;
+    .navbar-link {
+      color: $white;
+      text-decoration: unset;
+      margin: 0px 10px 0px 10px;
+      &.selected{
+          color: $link;
+      }
+    }
+    .navbar-link:hover {
+      opacity: 0.7;
+    }
+    .logout-btn {
+      color: $red;
+      cursor: pointer;
+      border-left: 1px solid $gray;
+      padding-left: 10px;
+      margin-right: 10px;
+    }
+    .logout-btn:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-wrapper {
+    flex-direction: column;
+    .navbar-logo-wrapper {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .navbar-links-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .navbar-links-wrapper {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .navbar-links-wrapper {
+    font-size: 12px;
+  }
+}

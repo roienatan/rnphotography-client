@@ -1,0 +1,93 @@
+@import "../styles/base/colors.scss";
+
+.login-wallpaper {
+  background: url("../assets/login-cover.jpg") no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  background-color: $white;
+  padding: 30px 55px 55px;
+  border-top: 5px solid $gray;
+  width: 250px;
+  .login-title {
+    color: $main-black;
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+  .error-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    .error-icon {
+      background-image: url("../assets/exclamation-mark.svg");
+      background-repeat: no-repeat;
+      background-size: 20px;
+      width: 30px;
+      height: 30px;
+      background-position: center;
+      margin-right: 10px;
+    }
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $light-gray;
+    color: $main-black;
+    margin-bottom: 35px;
+    font-size: 24px;
+  }
+
+  .sign-in-btn {
+    position: relative;
+    height: 40px;
+    background-color: $main-black;
+    color: $white;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    &.disabled {
+      animation: fade-in forwards 0.2s;
+      pointer-events: none;
+    }
+  }
+  .sign-in-btn:hover {
+    opacity: 0.9;
+  }
+  label {
+    color: $gray;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+}
+
+.logo-container {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  left: 30px;
+  top: 30px;
+  color: $white;
+  .title {
+    margin-left: 5px;
+    letter-spacing: 5.7px;
+    .bold {
+      letter-spacing: 2.3px;
+      font-weight: bolder;
+    }
+  }
+}
