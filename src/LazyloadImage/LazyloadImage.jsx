@@ -2,6 +2,10 @@ import React from 'react';
 import Swiper from 'react-id-swiper';
 import './LazyloadImage.scss';
 
+function preventDefault(e) {
+    e.preventDefault();
+}
+
 class LazyloadImage extends React.Component {
     constructor(props) {
         super(props);
@@ -22,10 +26,16 @@ class LazyloadImage extends React.Component {
 
     componentDidMount() {
         window.addEventListener("orientationchange", this.handleOrientationChange);
+        document.getElementsByTagName("BODY")[0].style.overflow = 'hidden';
+        document.getElementsByTagName("BODY")[0].style.backgroundColor = '#000000';
+        document.body.addEventListener('touchmove', preventDefault, { passive: false }); // Prevent scrolling iOS
     }
 
     componentWillUnmount() {
         window.removeEventListener("orientationchange", this.handleOrientationChange);
+        document.getElementsByTagName("BODY")[0].style.overflow = 'unset';
+        document.getElementsByTagName("BODY")[0].style.backgroundColor = '#282c34';
+        document.body.removeEventListener('touchmove', preventDefault, { passive: false }); // Enable scrolling iOS
     }
 
     handleOrientationChange = () => {

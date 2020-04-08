@@ -9,6 +9,8 @@ class Home extends React.Component {
             <React.Fragment>
                 <TopBar />
                 <div className='home-wrapper'>
+                    <div className='welcome-message'>Welcome to my travel photography portfolio.
+                    The photos inside provide imagery from all around the world, showcasing its natural beauty. Enjoy!</div>
                     <Footer />
                 </div>
             </React.Fragment>

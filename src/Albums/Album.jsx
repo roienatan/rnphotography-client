@@ -1,6 +1,7 @@
 import React from 'react';
 import './Album.scss';
 import TopBar from '../TopBar/TopBar';
+import Image from '../Image/Image';
 import { isAdmin } from '../utilities';
 import history from '../history';
 import Spinner from '../Spinner/Spinner';
@@ -20,12 +21,12 @@ class Album extends React.Component {
     }
 
     componentDidMount() {
-        this.getAlbumById(this.albumId);
+        this.getAlbumById();
     }
 
-    getAlbumById = (albumId) => {
+    getAlbumById = () => {
         this.setState({ pendingServer: true });
-        fetch(Constants.GET_ALBUM_BY_ID + albumId, {
+        fetch(Constants.GET_ALBUM_BY_ID + this.albumId, {
             method: 'GET'
         }).then(res => {
             if (res.status !== 200) {
@@ -35,6 +36,7 @@ class Album extends React.Component {
             return res.json();
         }).then(data => {
             data.images.forEach(image => {
+                image.id = image.src;
                 image.src = Constants.GET_IMAGE + image.src;
             })
             this.setState({
@@ -70,7 +72,7 @@ class Album extends React.Component {
         }).then(data => {
             console.log(data);
             this.setState({ uploadedImages: [] });
-            this.getAlbumById(this.albumId);
+            this.getAlbumById();
         }).catch(err => {
             console.log(err);
         })
@@ -99,11 +101,12 @@ class Album extends React.Component {
         let isEmpty = undefined;
         if (albumDetails) {
             images = albumDetails.images.map((image, index) => {
-                return <img key={index} 
-                            className='image' 
-                            src={image.src} 
-                            alt={index} 
-                            onClick={() => this.toggleSwiper(index)} />
+                return <Image
+                    key={index}
+                    image={image} 
+                    index={index} 
+                    toggleSwiper={() => this.toggleSwiper(index)}
+                    getAlbumById = {this.getAlbumById} />
             })
             if (images.length === 0) { isEmpty = true };
         }
